@@ -67,7 +67,7 @@ public:
 		if (index != 0)
 		{
 			Node* prev = this->head;
-			for (int i = 0; i < index - 1; i++)
+			for (int i = 0; i < index - 1; i++) //search for the previous item in the list
 			{
 				prev = prev->Next;
 			}
@@ -85,7 +85,7 @@ public:
 		if (index != 0)
 		{
 			Node* prev = this->head;
-			for (int i = 0; i < index - 1; i++)
+			for (int i = 0; i < index - 1; i++) //search for the previous item in the list
 			{
 				prev = prev->Next;
 			}
@@ -134,7 +134,7 @@ public:
 	int at(int index)
 	{
 		Node* current = head;
-		for (int i = 0; i < index; i++)
+		for (int i = 0; i < index; i++) // go through the list until we find the desired item
 		{
 			current = current->Next;
 		}
@@ -144,7 +144,7 @@ public:
 	void reverse()
 	{
 		Node* prev = nullptr;
-		while (head)
+		while (head) // swap the two nearby elements one by one 
 		{
 			Node* Next = head;
 			head = head->Next;
@@ -156,16 +156,17 @@ public:
 
 	friend ostream& operator<< (ostream& out, const MyList& list)
 	{
-		MyList current;
+		MyList current; // [1;2;3;4;..]
 		current.head = list.head;
+		out << "[";
 		while (current.head)
 		{
 			out << current.head->data;
-			if (current.head->Next) out << ',';
+			if (current.head->Next) out << ';';
 			current.head = current.head->Next;
 		}
+		out << "]";
 		current.Size = 0;
 		return out;
 	}
 };
-
